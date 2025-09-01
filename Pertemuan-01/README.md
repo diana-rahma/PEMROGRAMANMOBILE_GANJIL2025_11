@@ -1,14 +1,14 @@
 ## Praktikum Pemrograman Mobile - Pertemuan 02
 
-Nama: Diana Rahmawati 
-Kelas: TI - 3G 
+Nama: Diana Rahmawati <br>
+Kelas: TI - 3G <br>
 NIM: 2341720162 
 
 #### Tugas Praktikum
 ##### Soal
-1. Modifikasilah kode pada baris 3 di VS Code atau Editor Code favorit Anda berikut ini agar mendapatkan keluaran (output) sesuai yang diminta!
-![soal1](img/soal1.png)
-Output yang diminta (Gantilah Fulan dengan nama Anda):
+1. Modifikasilah kode pada baris 3 di VS Code atau Editor Code favorit Anda berikut ini agar mendapatkan keluaran (output) sesuai yang diminta! <br>
+![soal1](img/soal1.png) <br>
+Output yang diminta (Gantilah Fulan dengan nama Anda): <br>
 ![soal1](img/soal12.png)
 2. Mengapa sangat penting untuk memahami bahasa pemrograman Dart sebelum kita menggunakan framework Flutter? Jelaskan!
 
@@ -17,9 +17,9 @@ Output yang diminta (Gantilah Fulan dengan nama Anda):
 4. Buatlah penjelasan dan contoh eksekusi kode tentang perbedaan Null Safety dan Late variabel !
 
 ##### Jawab
-1. Kode Program
-![soal1](img/kode1.png)
-Output
+1. Kode Program <br>
+![soal1](img/kode1.png) <br>
+Output <br>
 ![soal1](img/output1.png)
 
 2. Karena Dart merupakan inti dari framework Flutter. Memahami bahasa dart adalah dasar untuk menggunakan Flutter, menjadikan kita lebih mudah dan lebih paham saat membuat aplikasi menggunakan Flutter
@@ -44,7 +44,7 @@ d. Dibentuk agar kuat dan fleksibel
 - Cara Kerja Dart
 Cara mengeksekusi kode Dart dapat dilakukan dengan 2 cara yaitu:
 1. Dart virtual machines (VMs)
-2. JavaScript compilations
+2. JavaScript compilations <br>
 Kode Dart dapat dieksekusi pada lingkungan yang mendukung bahasa Dart dan memperhatikan fitur-fitur penting seperti:
 a. Runtime systems
 b. Dart core libraries
@@ -53,17 +53,17 @@ Ekseskusi kode Dart dapat beroperasi dalam 2 mode:
 -  Just in Time (JIT): tempat kode sumber dikompilasi sesuai kebutuhan - Just in Time. Dart VM Dart VM memuat dan mengkompilasi kode sumber ke kode mesin asli (native). Pendekatan ini digunakan untuk menjalankan kode pada command line atau selama proses pengembangan aplikasi mobile yang dapat memanfaatkan fitur seperti debugging dan hot reload.
 - Ahead of Time (AOT): dimana Dart VM dan kode dikompilasi sebelumnya, VM bekerja lebih seperti sistem runtime Dart, yang menyediakan garbage collector dan metode-metode native dari Dart software development kit (SDK) pada aplikasi. Pendekatan ini memiliki keuntungan performa yang sangat besar dibandingkan kompilasi JIT, tetapi fitur lain seperti debugging dan hot reload tidak tersedia.
 
-- Pengenalan Stuktur Bahasa Dart
+- Pengenalan Stuktur Bahasa Dart <br>
 Sintaks Dart mirip dengan C atau JavaScript. Dart Menyediakan operator standar, built-in types, control flow, dan function mirip bahasa pemrograman lain.
 
-- Object Orientation (OO)
+- Object Orientation (OO) <br>
 Dart adalah object-oriented language. Objek terdiri dari fields (data) dan methods (kode). Objek dibuat dari class yang menerapkan prinsip OOP:
 Encapsulation, Inheritance, Abstraction, Polymorphism. Desain OO Dart mirip dengan Java.
 
-- Dart Operators
+- Dart Operators <br>
 Operator di Dart adalah method dalam class dengan sintaks khusus. Contoh: x == y sama dengan memanggil x.==(y). Semua tipe data adalah objek, tidak ada tipe primitif seperti di Java. Operator bisa dioverride sesuai kebutuhan.
 
-- Arithmetic Operators
+- Arithmetic Operators 
 1. + penjumlahan
 2. - pengurangan
 3. * perkalian
@@ -90,9 +90,9 @@ Dart: == membandingkan isi variabel, bukan alamat memori.
 Tidak ada === seperti di JavaScript, karena Dart punya type safety.
 
 - Logical Operators
-!expression → negasi (true jadi false, sebaliknya)
-|| → OR
-&& → AND
+1. !expression => negasi (true jadi false, sebaliknya)
+2. || => OR
+3. && => AND
 
 -  Untuk belajar pemrograman Dart adalah dengan menggunakan DartPad karena mendukung core library Dart, kecuali library VM. 
 
