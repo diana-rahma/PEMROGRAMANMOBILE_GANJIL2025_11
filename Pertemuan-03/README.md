@@ -5,19 +5,18 @@ Kelas: TI -3G <br>
 NIM: 2341720162
 
 ## Praktikum 1 - Menerapkan Control Flows ("if/else")
-Pada langkah 1 terdapat error karena terdapat kesalahan penulisan pada kode if/else. Sedangkan pada langkah ke 3 terjadi error karena kondisi pemilihan belum didefinisikan.
-Output praktikum 1:
+Pada langkah 1 terdapat error karena terdapat kesalahan penulisan pada kode if/else. Sedangkan pada langkah ke 3 terjadi error karena kondisi pemilihan belum didefinisikan.<br>
+Output praktikum 1: <br>
 ![Prak1](img/prak1.png)
 
 ## Praktikum 2 - Menerapkan Perulangan "while" dan "do-while"
-Terdapat error pada langkah ke 1 dan 3 karena variabel counter belum dideklarasikan.
-
-Output praktikum 2:
+Terdapat error pada langkah ke 1 dan 3 karena variabel counter belum dideklarasikan.<br>
+Output praktikum 2: <br>
 ![Prak2](img/prak2.png)
 
 ## Praktikum 3 - Menerapkan Perulangan "for" dan "break-continue"
-Terdapat error pada langkah 1 karena variabel index belum dideklarasikan dan post increment pada variabel index belum ada. Pada langkah 3 tidak ada output karena menggunakan operator logika OR (||). 
-Output praktikum 3:
+Terdapat error pada langkah 1 karena variabel index belum dideklarasikan dan post increment pada variabel index belum ada. Pada langkah 3 tidak ada output karena menggunakan operator logika OR (||). <br>
+Output praktikum 3:<br>
 ![Prak3](img/prak3.png)
 
 ## Tugas Praktikum 
