@@ -6,7 +6,7 @@
 
 ### Praktikum 5 - Memperindah Tampilan Aplikasi
 ![Prak5](img/Prak5.1.png) <br>
-![Prak5](img/Prak5.2.png) <br
+![Prak5](img/Prak5.2.png) <br>
 ![Prak5](img/prak5.3.png) <br>
 ![Prak5](img/prak5.4.png) <br>
 ![Prak5](img/prak5.5.png) <br>
