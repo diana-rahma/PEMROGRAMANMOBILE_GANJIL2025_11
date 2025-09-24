@@ -1,16 +1,27 @@
-# namer_app
+# Codelabs: Your first Flutter app
 
-A new Flutter project.
+### Praktikum 4 - Menambahkan Tombol
+![Prak4](img/Prak4.1.png) <br>
+![Prak4](img/Prak4.2.png)
 
-## Getting Started
+### Praktikum 5 - Memperindah Tampilan Aplikasi
+![Prak5](img/Prak5.1.png) <br>
+![Prak5](img/Prak5.2.png) <br
+![Prak5](img/prak5.3.png) <br>
+![Prak5](img/prak5.4.png) <br>
+![Prak5](img/prak5.5.png) <br>
+![Prak5](img/prak5.6.png) 
 
-This project is a starting point for a Flutter application.
+### Praktikum 6 - Menambahkan Fungsi
+![Prak6](img/prak6.1.png) <br>
+![Prak6](img/prak6.2.png) <br>
 
-A few resources to get you started if this is your first Flutter project:
+### Praktikum 7 - Menambahkan Kolom Samping Navigasi
+![Prak7](img/prak7.1.png) <br>
+![Prak7](img/prak7.2.png) <br>
+![Prak7](img/prak7.3.png) <br>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Praktikum 8 - Menambahkan Halaman Baru
+![Prak8](img/prak8.1.png) <br>
+![Prak8](img/prak8.2.png) <br>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
