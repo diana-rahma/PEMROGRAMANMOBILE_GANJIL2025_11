@@ -1,32 +1,37 @@
-import 'package:belanja/models/item.dart';
+
 import 'package:flutter/material.dart';
+import '../models/item.dart';
 
 class ItemPage extends StatelessWidget {
-  const ItemPage({super.key});
+  final Item item;
 
-  @override
-  Widget build(BuildContext context) {
-    final itemArgs = ModalRoute.of(context)!.settings.arguments as Item;
+  const ItemPage({super.key, required this.item});
 
+  @override  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(itemArgs.name)),
-      body: Column(
-        children: [
-          Hero(
-            tag: itemArgs.name,
-            child: Image.asset(itemArgs.image, height: 200),
-          ),
-          const SizedBox(height: 12),
-          Text("Harga: Rp ${itemArgs.price}", style: const TextStyle(fontSize: 18)),
-          Text("Stok: ${itemArgs.stock}", style: const TextStyle(fontSize: 16)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Icon(Icons.star, color: Colors.amber),
-              Text(itemArgs.rating.toString()),
-            ],
-          ),
-        ],
+      appBar: AppBar(title: Text(item.name)),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Hero(
+              tag: item.name,
+              child: Image.asset(item.image, height: 200),
+            ),
+            SizedBox(height: 16),
+            Text(item.name, style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+            Text("Rp ${item.price}", style: TextStyle(fontSize: 18)),
+            Text("Stock: ${item.stock}"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.star, color: Colors.amber),
+                Text("${item.rating}")
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,7 +1,8 @@
 import 'package:belanja/models/item.dart';
 // import 'package:belanja/pages/item_page.dart';
-import 'package:belanja/widgets/item_card.dart';
+// import 'package:belanja/widgets/item_card.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatelessWidget {
   final List<Item> items = [
@@ -28,33 +29,57 @@ class HomePage extends StatelessWidget {
     ),
   ];
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Aplikasi Belanja")),
+      appBar: AppBar(title: Text("Toko Belanja")),
       body: GridView.builder(
-        padding: const EdgeInsets.all(12),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        padding: EdgeInsets.all(10),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          crossAxisSpacing: 12,
-          mainAxisSpacing: 12,
-          childAspectRatio: 0.8,
+          crossAxisSpacing: 8,
+          mainAxisSpacing: 8,
+          childAspectRatio: 0.7,
         ),
         itemCount: items.length,
         itemBuilder: (context, index) {
           final item = items[index];
-          return ItemCard(item: item);
+          return InkWell(
+            onTap: () {
+              context.push('/item', extra: item);
+            },
+            child: Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Hero(
+                    tag: item.name,
+                    child: Image.asset(item.image, height: 100),
+                  ),
+                  SizedBox(height: 8),
+                  Text(item.name, style: TextStyle(fontWeight: FontWeight.bold)),
+                  Text("Rp ${item.price}"),
+                  Text("Stock: ${item.stock}"),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(Icons.star, color: Colors.amber, size: 16),
+                      Text("${item.rating}")
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          );
         },
       ),
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.teal,
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Text(
-            "Diana Rahmawati - 2341720162",
-            textAlign: TextAlign.center,
-            style: const TextStyle(color: Colors.white, fontSize: 14),
-          ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(
+          "Diana Rahmawati - 2341720162",
+          textAlign: TextAlign.center,
         ),
       ),
     );
