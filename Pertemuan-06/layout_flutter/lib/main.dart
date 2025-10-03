@@ -66,11 +66,23 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: ListView(
           children: [
-            Image.asset(
-              'images/rajaampat.jpg',
-              width: 600,
-              height: 240,
-              fit: BoxFit.cover,
+            SizedBox(
+              height: 240, // atur tinggi gambar
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Image.asset('images/rajaampat.jpg', fit: BoxFit.cover),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Image.asset('images/foto1.jpg', fit: BoxFit.cover),
+                  ),
+                  Expanded(
+                    child: Image.asset('images/foto2.jpg', fit: BoxFit.cover),
+                  ),
+                ],
+              ),
             ),
             titleSection,
             buttonSection,
