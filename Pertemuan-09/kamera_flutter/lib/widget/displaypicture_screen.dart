@@ -1,5 +1,5 @@
-// A widget that displays the picture taken by the user.
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class DisplayPictureScreen extends StatelessWidget {
@@ -11,9 +11,13 @@ class DisplayPictureScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Display the Picture - 2341720162')),
-      // The image is stored as a file on the device. Use the `Image.file`
-      // constructor with the given path to display the image.
-      body: Image.file(File(imagePath)),
+      body: Center(
+        child: kIsWeb
+            // Jika dijalankan di Web → tampilkan gambar dengan Image.network
+            ? Image.network(imagePath)
+            // Jika dijalankan di Android/iOS → tampilkan gambar dari File
+            : Image.file(File(imagePath)),
+      ),
     );
   }
 }
