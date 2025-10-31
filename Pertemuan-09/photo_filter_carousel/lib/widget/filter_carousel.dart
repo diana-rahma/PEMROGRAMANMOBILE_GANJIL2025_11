@@ -1,9 +1,12 @@
+import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:photo_filter_carousel/widget/filter_selector.dart';
+import 'filter_selector.dart';
 
 @immutable
 class PhotoFilterCarousel extends StatefulWidget {
-  const PhotoFilterCarousel({super.key});
+  final String imagePath;
+  const PhotoFilterCarousel({super.key, required this.imagePath});
 
   @override
   State<PhotoFilterCarousel> createState() => _PhotoFilterCarouselState();
@@ -34,7 +37,7 @@ class _PhotoFilterCarouselState extends State<PhotoFilterCarousel> {
           Positioned(
             left: 0.0,
             right: 0.0,
-            bottom: 0.0,
+            bottom: 20.0,
             child: _buildFilterSelector(),
           ),
         ],
@@ -43,15 +46,18 @@ class _PhotoFilterCarouselState extends State<PhotoFilterCarousel> {
   }
 
   Widget _buildPhotoWithFilter() {
-    return ValueListenableBuilder(
+    return ValueListenableBuilder<Color>(
       valueListenable: _filterColor,
       builder: (context, color, child) {
-        // Anda bisa ganti dengan foto Anda sendiri
-        return Image.network(
-          'https://avatars.githubusercontent.com/u/98369663?v=4',
-          color: color.withOpacity(0.5),
-          colorBlendMode: BlendMode.color,
-          fit: BoxFit.cover,
+        return ColorFiltered(
+          colorFilter: ColorFilter.mode(color, BlendMode.color),
+          child: kIsWeb
+              ? Image.network(
+                  widget.imagePath,
+                ) // ✅ akses lewat widget.imagePath
+              : Image.file(
+                  File(widget.imagePath),
+                ), // ✅ akses lewat widget.imagePath
         );
       },
     );
