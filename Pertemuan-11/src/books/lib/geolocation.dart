@@ -10,35 +10,26 @@ class LocationScreen extends StatefulWidget {
 }
 
 class _LocationScreenState extends State<LocationScreen> {
-  String myPosition = 'Getting location...';
+  Future<Position>? position;
 
   @override
   void initState() {
     super.initState();
-    getPosition()
-        .then((Position myPos) {
-          setState(() {
-            myPosition =
-                'Latitude: ${myPos.latitude} - Longitude: ${myPos.longitude}';
-          });
-        })
-        .catchError((error) {
-          setState(() {
-            myPosition = 'Error: $error';
-          });
-        });
+    position = getPosition();
   }
 
   Future<Position> getPosition() async {
-    if (!await Geolocator.isLocationServiceEnabled()) {
-      throw Exception('Location service not enabled');
-    }
+    await Geolocator.isLocationServiceEnabled();
+    await Future.delayed(const Duration(seconds: 3));
 
-    LocationPermission permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied ||
-        permission == LocationPermission.deniedForever) {
-      // Di web, browser yang menangani izin — tidak perlu request manual
-      print('Location permission handled by browser');
+    if (!kIsWeb) {
+      LocationPermission permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied ||
+          permission == LocationPermission.deniedForever) {
+        await Geolocator.requestPermission();
+      }
+    } else {
+      debugPrint('Web: izin lokasi ditangani oleh browser.');
     }
 
     return await Geolocator.getCurrentPosition();
@@ -46,13 +37,31 @@ class _LocationScreenState extends State<LocationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final myWidget = (myPosition == 'Getting location...')
-        ? const CircularProgressIndicator()
-        : Text(myPosition, textAlign: TextAlign.center);
-
     return Scaffold(
       appBar: AppBar(title: const Text('Current Location - Diana')),
-      body: Center(child: myWidget),
+      body: Center(
+        child: FutureBuilder(
+          future: position,
+          builder: (BuildContext context, AsyncSnapshot<Position> snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            } else if (snapshot.connectionState == ConnectionState.done) {
+              // ✅ Langkah 5: Tambahkan handling error
+              if (snapshot.hasError) {
+                return const Text('Something terrible happened!');
+              }
+              // Jika tidak ada error, tampilkan posisi
+              return Text(
+                'Latitude: ${snapshot.data!.latitude}\n'
+                'Longitude: ${snapshot.data!.longitude}',
+                textAlign: TextAlign.center,
+              );
+            } else {
+              return const Text('');
+            }
+          },
+        ),
+      ),
     );
   }
 }
