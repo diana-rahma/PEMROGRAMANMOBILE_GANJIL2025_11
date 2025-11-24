@@ -4,7 +4,7 @@ import 'package:path_provider/path_provider.dart';
 import './model/pizza.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
-
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,6 +40,10 @@ class _MyHomePageState extends State<MyHomePage> {
   String tempPath = '';
   late File myFile;
   String fileText = '';
+  final pwdController = TextEditingController();
+  String myPass = '';
+  final storage = const FlutterSecureStorage();
+  final myKey = 'myPass';
 
   // Future readJsonFile() async {
   //   String myString = await DefaultAssetBundle.of(
@@ -120,6 +124,15 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  Future writeToSecureStorage() async {
+    await storage.write(key: myKey, value: pwdController.text);
+  }
+
+  Future<String> readFromSecureStorage() async {
+    String secret = await storage.read(key: myKey) ?? '';
+    return secret;
+  }
+
   @override
   void initState() {
     getPaths().then((_) {
@@ -136,12 +149,23 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text('Doc path: ' + documentsPath),
-          Text('Temp path' + tempPath),
+          TextField(controller: pwdController),
           ElevatedButton(
-            child: const Text('Read File'),
-            onPressed: () => readFile(),
+            child: Text('Save Value'),
+            onPressed: writeToSecureStorage,
           ),
+          ElevatedButton(
+            child: Text('Read Value'),
+            onPressed: () {
+              readFromSecureStorage().then((value) {
+                setState(() {
+                  myPass = value;
+                });
+              });
+            },
+          ),
+          Text(myPass),
+          ElevatedButton(child: Text('Read File'), onPressed: readFile),
           Text(fileText),
         ],
       ),
